@@ -1,0 +1,156 @@
+<html>
+  <head>
+    <title>Calendario</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript"
+      src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <script type="text/javascript"
+      src="fullcalendar-1.6.2/fullcalendar/fullcalendar.js"></script>
+
+    <script type="text/javascript"
+      src="calendar.js"></script>
+    <link rel='stylesheet' type='text/css'
+      href='fullcalendar-1.6.2/fullcalendar/fullcalendar.css' />
+
+<style type='text/css'>
+  body {
+    font-size: 14px;
+    font-family: "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
+  }
+
+  .fc-event {
+    cursor: pointer;
+  }
+
+  #calendar {
+    width: 95%;
+    margin: 0 auto;
+  }
+
+  #legend {
+    width: 19.89%;
+    float: left;
+    margin-top: 2em;
+  }
+
+  #legend div {
+    padding: .5em 1em;
+    margin: .3em 0;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  #legend div input {
+    left: -99px;
+    position: absolute;
+  }
+
+  #calendar-wrapper {
+    float: right;
+    width: 80%;
+    margin-bottom: 3em;
+  }
+
+  .cal1 {
+    background-color: OliveDrab;
+    border: 1px solid DarkOliveGreen;
+    color: white
+  }
+
+  .cal2 {
+    background-color: Khaki;
+    border: 1px solid DarkKhaki;
+    color: black
+  }
+
+  .cal3 {
+    background-color: Plum;
+    border: 1px solid Orchid;
+    color: black
+  }
+
+  .unchecked {
+    background-color: #E6E6E6;
+    border: 1px solid #CCCCCC;
+    color: #A1A1A1;
+  }
+
+</style>
+
+  </head>
+  <body>
+    <h1>Test Calendar</h1>
+    <div id="calendarwidget">
+      <h2>Legend</h2>
+      <div id="legend">
+        <div class="cal1 unchecked"
+        data-calendar-url="./json1.json">
+          <input type="checkbox" name="sel-events" value="cal1" />
+          Calendar #1</div>
+        <div class="cal2"
+        data-calendar-url="./json2.json">
+          <input type="checkbox" checked="1" name="sel-events" value="cal2" />
+          Calendar #2</div>
+        <div class="cal3"
+        data-calendar-url="./json3.json">
+          <input type="checkbox" checked="1" name="sel-events" value="cal3" />
+          Calendar #3</div>
+      </div>
+      <div id="calendar-wrapper">
+        <div id='calendar'></div>
+      </div>
+    </div>
+<script type="text/javascript">
+(function ($) {
+    "use strict";
+
+    $('#calendar').calendarwidget({
+      settings: {
+        columnFormat: {
+            month: 'dddd',
+            week: 'ddd d/M',
+            day: 'dddd d MMMM'
+        },
+        titleFormat: {
+          month: 'MMMM yyyy',
+          week: "d MMMM [ yyyy]{ '&#8212;' d [ MMMM] yyyy}",
+          day: 'dddd d MMMM yyyy'
+        },
+        monthNames: [
+          'Gennaio', 'Febbraio', 'Marzo', 'Aprile',
+          'Maggio', 'Giugno', 'Luglio', 'Agosto',
+          'Settembre', 'Ottobre', 'Novembre', 'Dicembre'
+        ],
+        monthNamesShort: [
+          'Gen', 'Feb', 'Mar', 'Apr',
+          'Mag', 'Giu', 'Lug', 'Ago',
+          'Set', 'Ott', 'Nov', 'Dic'
+        ],
+        dayNames: [
+          'Domenica', 'Lunedì', 'Martedì',
+          'Mercoledì', 'Giovedì', 'Venerdì', 'Sabato'
+        ],
+        dayNamesShort: [
+          'Dom', 'Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab'
+        ],
+        buttonText: {
+            prev:     '&lsaquo;',
+            next:     '&rsaquo;',
+            prevYear: '&laquo;',
+            nextYear: '&raquo;',
+            today:    'Oggi',
+            month:    'Mese',
+            week:     'Settimana',
+            day:      'Giorno'
+        }
+      }
+
+    });
+
+}(jQuery));
+
+</script>
+  </body>
+</html>
+

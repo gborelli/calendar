@@ -1,4 +1,4 @@
 calendar
 ========
 
-fullcalendari example
+fullcalendar example
