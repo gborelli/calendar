@@ -84,12 +84,8 @@
         },
 
         eventClick: function (calEvent, jsEvent, view) {
-            alert('Event: ' + calEvent.title);
-            alert('Description: ' + calEvent.description);
-            alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
-            alert('View: ' + view.name);
-            // change the border color just for fun
-            // $(this).css('border-color', 'red');
+            alert('Not implemented Error!!!');
+            jsEvent.preventDefault();
         },
 
         displayEvents: function (name) {
@@ -177,18 +173,17 @@
                     $this.removeData('calendarwidget');
                 }
             });
-        },
-
-
-        refresh: function () {
-            return this.each(function () {
-                var $this = $(this),
-                    data = $this.data('calendarwidget');
-                if (data) {
-                    alert("TODO");
-                }
-            });
         }
+
+        // refresh: function () {
+        //     return this.each(function () {
+        //         var $this = $(this),
+        //             data = $this.data('calendarwidget');
+        //         if (data) {
+        //             alert("TODO");
+        //         }
+        //     });
+        // }
 
     };
 

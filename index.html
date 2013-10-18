@@ -1,22 +1,26 @@
 <html>
   <head>
-    <title>Calendario</title>
+    <title>Calendar</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <script type="text/javascript"
       src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
     <script type="text/javascript"
       src="fullcalendar-1.6.2/fullcalendar/fullcalendar.js"></script>
-
+    <script type='text/javascript' src='fullcalendar-1.6.2/fullcalendar/gcal.js'></script>
     <script type="text/javascript"
       src="calendar.js"></script>
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
     <link rel='stylesheet' type='text/css'
       href='fullcalendar-1.6.2/fullcalendar/fullcalendar.css' />
 
+
 <style type='text/css'>
-  body {
+  /*body {
     font-size: 14px;
     font-family: "Lucida Grande", Helvetica, Arial, Verdana, sans-serif;
-  }
+  }*/
 
   .fc-event {
     cursor: pointer;
@@ -27,31 +31,35 @@
     margin: 0 auto;
   }
 
-  #legend {
+/*  #legend {
     width: 19.89%;
     float: left;
     margin-top: 2em;
-  }
+  }*/
 
   #legend div {
     padding: .5em 1em;
-    margin: .3em 0;
-    border-radius: 4px;
-    overflow: hidden;
+    margin: .2em 0;
+    width: 100%;
+    text-align: left;
+
+/*    border-radius: 4px;
+    overflow: hidden;*/
     cursor: pointer;
   }
 
   #legend div input {
     left: -99px;
     position: absolute;
+    display: none;
   }
 
-  #calendar-wrapper {
+/*  #calendar-wrapper {
     float: right;
     width: 80%;
     margin-bottom: 3em;
   }
-
+*/
   .cal1 {
     background-color: OliveDrab;
     border: 1px solid DarkOliveGreen;
@@ -70,6 +78,18 @@
     color: black
   }
 
+  .festivita {
+    background-color: FireBrick;
+    border: 1px solid DarkRed;
+    color: white
+  }
+
+
+  .fc-sat, .fc-sun {
+    background-color: #fbfbfb;
+  }
+
+
   .unchecked {
     background-color: #E6E6E6;
     border: 1px solid #CCCCCC;
@@ -80,25 +100,30 @@
 
   </head>
   <body>
-    <h1>Test Calendar</h1>
-    <div id="calendarwidget">
-      <h2>Legend</h2>
-      <div id="legend">
-        <div class="cal1 unchecked"
-        data-calendar-url="./json1.json">
-          <input type="checkbox" name="sel-events" value="cal1" />
-          Calendar #1</div>
-        <div class="cal2"
-        data-calendar-url="./json2.json">
-          <input type="checkbox" checked="1" name="sel-events" value="cal2" />
-          Calendar #2</div>
-        <div class="cal3"
-        data-calendar-url="./json3.json">
-          <input type="checkbox" checked="1" name="sel-events" value="cal3" />
-          Calendar #3</div>
-      </div>
-      <div id="calendar-wrapper">
-        <div id='calendar'></div>
+    <div class="container">
+      <h1>Test Calendar</h1>
+      <div id="calendarwidget" class="row">
+        <div id="legend" class="col-lg-2">
+          <div class="festivita badge"
+            data-calendar-url="http://www.google.com/calendar/feeds/it.italian%23holiday%40group.v.calendar.google.com/public/basic">
+            <input type="checkbox" checked="1" name="sel-events" value="festivita" />
+            Festività Italiane</div>
+          <div class="cal1 unchecked badge"
+          data-calendar-url="./json1.json">
+            <input type="checkbox" name="sel-events" value="cal1" />
+            Calendar #1</div>
+          <div class="cal2 badge"
+          data-calendar-url="./json2.json">
+            <input type="checkbox" checked="1" name="sel-events" value="cal2" />
+            Calendar #2</div>
+          <div class="cal3 badge"
+          data-calendar-url="./json3.json">
+            <input type="checkbox" checked="1" name="sel-events" value="cal3" />
+            Calendar #3</div>
+        </div>
+        <div id="calendar-wrapper" class="col-lg-10">
+          <div id='calendar'></div>
+        </div>
       </div>
     </div>
 <script type="text/javascript">
@@ -107,6 +132,7 @@
 
     $('#calendar').calendarwidget({
       settings: {
+        firstDay: 1,
         columnFormat: {
             month: 'dddd',
             week: 'ddd d/M',
@@ -144,7 +170,18 @@
             week:     'Settimana',
             day:      'Giorno'
         }
-      }
+      },
+
+      // eventClick: function (calEvent, jsEvent, view) {
+      //       alert('Event: ' + calEvent.title);
+      //       alert('Description: ' + calEvent.description);
+      //       alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
+      //       alert('View: ' + view.name);
+      //       // change the border color just for fun
+      //       // $(this).css('border-color', 'red');
+      //       jsEvent.preventDefault();
+      // }
+
 
     });
 
