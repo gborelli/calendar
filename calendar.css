@@ -1,0 +1,57 @@
+.fc-event {
+  cursor: pointer;
+}
+
+#calendar {
+  width: 95%;
+  margin: 0 auto;
+}
+
+#legend div {
+  padding: .5em 1em;
+  margin: .2em 0;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+#legend div input {
+  left: -99px;
+  position: absolute;
+  display: none;
+}
+
+.cal1 {
+  background-color: OliveDrab;
+  border: 1px solid DarkOliveGreen;
+  color: white
+}
+
+.cal2 {
+  background-color: Khaki;
+  border: 1px solid DarkKhaki;
+  color: black
+}
+
+.cal3 {
+  background-color: Plum;
+  border: 1px solid Orchid;
+  color: black
+}
+
+.festivita {
+  background-color: FireBrick;
+  border: 1px solid DarkRed;
+  color: white
+}
+
+.fc-sat,
+.fc-sun {
+  background-color: #fbfbfb;
+}
+
+.unchecked {
+  background-color: #E6E6E6;
+  border: 1px solid #CCCCCC;
+  color: #A1A1A1;
+}
